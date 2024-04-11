@@ -1,0 +1,94 @@
+.container-scroll {
+    height: 100vh;
+    overflow-y: auto; 
+}
+html{
+    background-color: rgb(34, 34, 34);
+}
+.above {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#input {
+    width: calc(100% - 22px);
+    height: 300px; 
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px; 
+    display: block;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    resize: none;
+    overflow-y: auto;
+    outline: none;
+}
+
+#parseButton {
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#parseButton:hover {
+    background-color: #0ff;
+}
+
+#outputLexer,
+#outputConsole {
+    font-size: 16px;
+    width: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.container p {
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(40, 40, 40);
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+.wrapper {
+    display: flex;
+}
+
+.sidebar {
+    width: 30%; 
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #333; 
+    color: #fff; 
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+
+.main-content {
+    flex-grow: 1; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+

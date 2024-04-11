@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi aplicación</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+    <div class="container-scroll">
+        <div class="wrapper">
+            <div class="sidebar">
+               
+                <h2>Ejemplos en Pythin:</h2>
+                <h3>Declarar Variables:</h3>
+                <pre>
+x -> 10
+y -> "Hola mundo"
+</pre>
+                <h3>Definir Funciones:</h3>
+                <pre>
+fcn llamar(nombre){
+    print("Hey "+nombre)
+}
+
+llamar("Juan")
+</pre>
+                <h3>Usar Condicionales:</h3>
+                <pre>
+edad -> 18
+if edad >= 18{
+    print("Eres mayor de edad")
+}else{
+    print("Eres menor de edad")
+}
+</pre>
+                <h3>Bucles For:</h3>
+                <pre>
+for i in (1, 6){
+    print(i)
+}
+</pre>
+            </div>
+            <div class="main-content">
+                <div class="above">
+                    <textarea id="input" type="text" placeholder="Escriba aquí..."></textarea>
+                    <button id="parseButton"></button>
+                    <div class="marki">
+                        <pre id="outputLexer"></pre>
+                        <div class="container">
+                            <p>Terminal: </p>
+                            <pre id="outputConsole"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#parseButton').click(function() {
+            const input = $('#input').val();
+            $.ajax({
+                url: 'http://localhost:3000/parse',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ data: input }),
+                success: function(response) {
+                    console.log(response);
+                    $('#outputLexer').text(JSON.stringify(response.result, null, 2));
+                    $('#outputConsole').text(response.output)
+                },
+                error: function(error) {
+                    $('#outputLexer').text(error.responseJSON.error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
